@@ -18,6 +18,11 @@ class SDPABackend(AttentionBackend):
     def get_supported_head_sizes() -> list[int]:
         return [32, 64, 96, 128, 160, 192, 224, 256]
 
+    @classmethod
+    def get_supported_dtypes(cls) -> tuple[torch.dtype, ...]:
+        # torch.nn.functional.scaled_dot_product_attention also runs in fp32.
+        return (torch.float16, torch.bfloat16, torch.float32)
+
     @staticmethod
     def get_name() -> str:
         return "TORCH_SDPA"
