@@ -180,6 +180,7 @@ def test_load_run_config_supports_yaml_roundtrip(tmp_path) -> None:
                 "num_inference_steps": 50,
                 "num_inference_steps_sr": 50,
                 "guidance_scale": 1.0,
+                "batch_cfg": False,
                 "guidance_scale_2": None,
                 "guidance_rescale": 0.0,
                 "true_cfg_scale": None,

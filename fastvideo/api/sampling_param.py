@@ -89,6 +89,7 @@ class SamplingParam:
     num_inference_steps: int = 50
     num_inference_steps_sr: int = 50
     guidance_scale: float = 1.0
+    batch_cfg: bool = False
     guidance_scale_2: float | None = None
     guidance_rescale: float = 0.0
     boundary_ratio: float | None = None
@@ -318,6 +319,12 @@ class SamplingParam:
             type=float,
             default=SamplingParam.guidance_scale,
             help="Classifier-free guidance scale",
+        )
+        parser.add_argument(
+            "--batch-cfg",
+            action=StoreBoolean,
+            default=SamplingParam.batch_cfg,
+            help="Evaluate conditional and unconditional CFG branches in one batch",
         )
         parser.add_argument(
             "--guidance-rescale",

@@ -147,6 +147,7 @@ class SamplingConfig:
     num_inference_steps: int = 50
     num_inference_steps_sr: int = 50
     guidance_scale: float = 1.0
+    batch_cfg: bool = False
     guidance_scale_2: float | None = None
     guidance_rescale: float = 0.0
     true_cfg_scale: float | None = None
